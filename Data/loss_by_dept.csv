@@ -1,10 +1,10 @@
 dept_no,dept_name,total_emp,retiring_emp
-d001,Marketing,14842,2199
-d002,Finance,12437,1908
-d003,Human Resources,12898,1953
-d004,Production,53304,8174
-d005,Development,61386,9281
-d006,Quality Management,14546,2234
-d007,Sales,37701,5860
-d008,Research,15441,2413
-d009,Customer Service,17569,2597
+d001,Marketing,14842,4392
+d002,Finance,12437,3759
+d003,Human Resources,12898,3925
+d004,Production,53304,16172
+d005,Development,61386,18368
+d006,Quality Management,14546,4448
+d007,Sales,37701,11336
+d008,Research,15441,4738
+d009,Customer Service,17569,5320
