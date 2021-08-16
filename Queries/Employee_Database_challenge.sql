@@ -41,12 +41,12 @@ SELECT DISTINCT ON (e.emp_no)e.emp_no, e.first_name, e.last_name, e.birth_date, 
         INNER JOIN departments as d ON (de.dept_no = d.dept_no)
         WHERE (de.to_date = '9999-01-01');
 
-    SELECT ce.dept_no, ce.dept_name, COUNT(ce.emp_no)as total_emp, rbd.count as retiring_emp
+    SELECT ce.dept_no, ce.dept_name, COUNT(ce.emp_no)as total_emp, rd.count as retiring_emp
     	INTO loss_by_dept
     	FROM current_employees as ce
-    	INNER JOIN ret_by_dept as rbd ON (ce.dept_no = rbd.dept_no)
+    	INNER JOIN ret_dept as rd ON (ce.dept_no = rd.dept_no)
     	GROUP BY ce.dept_name,
-			 rbd.count,
+			 rd.count,
 			 ce.dept_no
     	ORDER BY ce.dept_no; 
 
@@ -58,10 +58,10 @@ SELECT DISTINCT ON (e.emp_no)e.emp_no, e.first_name, e.last_name, e.birth_date, 
     	GROUP BY ce.dept_no,
     			 ce.dept_name;
 
-    SELECT mbd.dept_no, mbd.dept_name, mbd.mentorship_eligible, rbd.count as retiring
+    SELECT mbd.dept_no, mbd.dept_name, mbd.mentorship_eligible, rd.count as retiring
     	INTO mentor_v_retiring
     	FROM mentorship_by_dept as mbd
-    	INNER JOIN ret_by_dept as rbd ON (mbd.dept_no = rbd.dept_no)
+    	INNER JOIN ret_dept as rd ON (mbd.dept_no = rd.dept_no)
   
   -- Compare mentorship eligible to retiring by title
     SELECT m.count as mentorship_eligible, r.count as retiring, r.title
